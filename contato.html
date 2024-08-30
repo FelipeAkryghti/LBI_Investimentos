@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="estilos/contato.css">
+    <link rel="shortcut icon" href="img/LBI_logo.png" type="image/x-icon">
+</head>
+<body>
+    <h1>Inscreva-se agora para o LBI Masterclass</h1>
+    <form id="contactForm" autocomplete="off">
+        <div class="header__logo"><img src="img/LBI_logo_nav.png" alt="LogoLBI"></div>
+        <fieldset>
+            <label for="selectPlan">Escolha seu Plano:</label>
+            <select name="selectPlan" id="selectPlan" class="selectPlan" required>
+                <option value="">Tipo de Plano</option>
+                <option value="essencial">Essencial</option>
+                <option value="premium">Premium</option>
+                <option value="gold">Gold</option>
+            </select>
+            <legend>Formulário de Contato</legend>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required placeholder="Digite seu nome completo" autocomplete="off">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required placeholder="Digite seu e-mail" autocomplete="off">
+
+            <label for="phone">Telefone:</label>
+            <input type="number" id="phone" name="phone" placeholder="Digite seu telefone" autocomplete="off">
+
+            <button type="submit" class="btn">Enviar</button>
+        </fieldset>
+    </form>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o recarregamento da página após o envio do formulário
+
+            // Captura os valores dos campos
+            const plan = document.getElementById('selectPlan').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            // Armazena as informações no localStorage
+            localStorage.setItem('plan', plan);
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('phone', phone);
+
+            // Exibe uma mensagem de confirmação
+            alert('Formulário enviado com sucesso!');
+
+            // Opcional: Limpar o formulário
+            document.getElementById('contactForm').reset();
+            console.log(localStorage)
+        });
+    </script>
+</body>
+</html>

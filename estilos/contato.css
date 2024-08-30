@@ -1,0 +1,123 @@
+:root{
+    --primary-color: #3f82e6;
+}
+
+/* Remove a setinha padrão do input type number */
+
+html{
+    background-color: #000000;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.header__logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5em;
+}
+h1{
+    color: var(--primary-color);
+    margin-bottom: 1em;
+}
+form{
+    width: 90%;
+    min-width: 450px;
+    max-width: 560px;
+    background-color: #000000;
+    padding: 2.5em;
+    color: white;
+    box-shadow: 0px 0px 4px 2px var(--primary-color);
+}
+
+fieldset{
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+label,input{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+.selectPlan{
+    width: 100%;
+    padding: .75em;
+    background-color: rgba(0, 0, 0, .3);
+    color: white;
+    outline: none;
+    margin: .5em 0 2.5em;
+    border: 2px solid transparent;
+    border-bottom-color: #bbb;
+    font-size: 1em;
+}
+
+.selectPlan option{
+    font-size: 1em;
+    background-color: rgb(0, 0, 0, .7);
+}
+
+
+input{
+    background-color: rgba(0, 0, 0, .3);
+    border: 2px solid transparent;
+    border-bottom-color: #bbb;
+    padding: .75em;
+    margin: .5em 0 2.5em;
+    font-size: 1em;
+    color: white;
+    outline: 0;
+    transition: ease .3s all;
+}
+
+input:invalid:focus{
+    border-bottom: 2px solid red;
+}
+
+input:valid:focus{
+    border-bottom: 2px solid green;
+}
+
+input:focus{
+    border-bottom: 2px solid #8e999a;
+    background-color: #2a2727;
+    padding-left: 1em;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+legend{
+    text-align: center;
+    padding: .5em;
+    font-weight: bold;
+    color: #8e999a;
+    font-size: 1.3em;
+    margin-bottom: .75em;
+}
+
+.btn{
+    width: 100%;
+    background-color: #171717;
+    color: white;
+    cursor: pointer;
+    padding: .7em;
+    font-size: 1.2em;
+    border: none;
+    transition: ease .5s all;
+}
+
+.btn:hover{
+    background-color: #373636;
+}
