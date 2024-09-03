@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,55 +8,57 @@
     <link rel="stylesheet" href="estilos/contato.css">
     <link rel="shortcut icon" href="img/LBI_logo.png" type="image/x-icon">
 </head>
+
 <body>
     <h1>Inscreva-se agora para o LBI Masterclass</h1>
     <form id="contactForm" autocomplete="off">
         <div class="header__logo"><img src="img/LBI_logo_nav.png" alt="LogoLBI"></div>
         <fieldset>
+            <legend>Formulário de Contato</legend>
             <label for="selectPlan">Escolha seu Plano:</label>
             <select name="selectPlan" id="selectPlan" class="selectPlan" required>
                 <option value="">Tipo de Plano</option>
-                <option value="essencial">Essencial</option>
-                <option value="premium">Premium</option>
-                <option value="gold">Gold</option>
+                <option value="Essencial">Essencial</option>
+                <option value="Premium">Premium</option>
+                <option value="Gold">Gold</option>
             </select>
-            <legend>Formulário de Contato</legend>
             <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" required placeholder="Digite seu nome completo" autocomplete="off">
+            <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
 
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required placeholder="Digite seu e-mail" autocomplete="off">
+            <input type="email" id="email" name="email" required placeholder="Digite seu e-mail">
 
             <label for="phone">Telefone:</label>
-            <input type="number" id="phone" name="phone" placeholder="Digite seu telefone" autocomplete="off">
+            <input type="number" id="phone" name="phone" placeholder="Digite seu telefone">
 
             <button type="submit" class="btn">Enviar</button>
         </fieldset>
     </form>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
+        var numeroEmpresa = "+554399990000";
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Impede o recarregamento da página após o envio do formulário
 
             // Captura os valores dos campos
-            const plan = document.getElementById('selectPlan').value;
-            const name = document.getElementById('name').value;
+            const plano = document.getElementById('selectPlan').value;
+            const nome = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
 
-            // Armazena as informações no localStorage
-            localStorage.setItem('plan', plan);
-            localStorage.setItem('name', name);
-            localStorage.setItem('email', email);
-            localStorage.setItem('phone', phone);
+            // Monta a mensagem para o WhatsApp
+            const mensagem = `Olá, meu nome é ${nome}. O plano que me chamou atenção foi o ${plano}, e minhas formas de contato são ${email} ou ${phone}.`;
 
-            // Exibe uma mensagem de confirmação
-            alert('Formulário enviado com sucesso! Atenção: Informações salvas na console da página');
+            // Codifica a mensagem para ser usada na URL
+            const mensagemCodificada = encodeURIComponent(mensagem);
 
-            // Opcional: Limpar o formulário
-            document.getElementById('contactForm').reset();
-            console.log(localStorage)
+            // Monta a URL do WhatsApp com o número da empresa e a mensagem
+            const urlWhatsapp = `https://wa.me/${numeroEmpresa}?text=${mensagemCodificada}`;
+
+            // Abre o WhatsApp em uma nova aba
+            window.open(urlWhatsapp, '_blank');
         });
     </script>
 </body>
+
 </html>
